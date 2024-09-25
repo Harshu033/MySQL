@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="get">
+        <input type="hidden" value="<%= edit %>" name="edit">
+        <input type="text" name="email" placeholder="email" value="<%= edit?edits.email:""%>">
+        <input type="password" name="password" placeholder="password" value="<%= edit?edits.password:"" %>">
+        <input type="submit">
+        <br>
+        <br>
+    </form>
+
+    <table border="1px" width="50%">
+        <tr>
+            <td>Id</td>
+            <td>Email</td>
+            <td>Password</td>
+            <td>Delete</td>
+            <td>edit</td>
+        </tr>
+        <% data.map((el)=>{ %>
+            <tr>
+                <td>
+                    <%= el.id %>
+                </td>
+                <td>
+                    <%= el.email %>
+                </td>
+                <td>
+                    <%= el.password %>
+                </td>
+                <td><a href="/?deid=<%= el.id %>">Delete</a></td>
+                <td><a href="/?edit=<%= el.id %>">Edit</a></td>
+
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>
